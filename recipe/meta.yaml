@@ -1,5 +1,5 @@
 {% set name = "airfly" %}
-{% set version = "0.10.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/airfly-{{ version }}.tar.gz
-  sha256: 191b283c669d2cba008dba26bc1111dfa30d846e8660a0dabde0621d3c3e74dc
+  sha256: d7f04b6bd4d20b93b7e7ec87d9cf78eae65cd7ccc1140091a314954c1969f646
 
 build:
   entry_points:
