@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/airfly-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/airfly-{{ version }}.tar.gz
   sha256: d7f04b6bd4d20b93b7e7ec87d9cf78eae65cd7ccc1140091a314954c1969f646
 
 build:
@@ -14,15 +14,15 @@ build:
     - airfly = airfly.cli.main:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pdm-backend
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - attrs
     - cattrs
     - regex
@@ -42,6 +42,7 @@ test:
     - airfly --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/ryanchao2012/airfly
